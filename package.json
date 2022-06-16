@@ -3,7 +3,8 @@
   "scripts": {
     "test": "jest",
     "start": "vite",
-    "e2e": "cypress run"
+    "e2e": "cypress run",
+    "open": "cypress open"
   },
   "devDependencies": {
     "@types/jest": "^28.1.1",
