@@ -34,4 +34,12 @@ describe("react application", function () {
     cy.get("div.book-item").contains("View Details").eq(0).click();
     cy.url().should("include", "/books/1");
   });
+
+  it("Searches for a title", () => {
+    cy.visit("http://localhost:8118/");
+    cy.get("div.book-item").should("have.length", 2);
+    cy.get('[data-test="search"] input').type("design");
+    cy.get("div.book-item").should("have.length", 1);
+    cy.get("div.book-item").eq(0).contains("Domain-driven design");
+  });
 });

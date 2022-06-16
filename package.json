@@ -8,8 +8,10 @@
     "server": "json-server --watch cypress/stub-server/db.json --port 8119"
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.2.0",
     "@types/jest": "^28.1.1",
     "@types/jsonpath": "^0.2.0",
     "@types/node": "^18.0.0",
