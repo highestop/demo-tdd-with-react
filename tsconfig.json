@@ -4,8 +4,6 @@
     "types": ["node", "jest"],
     "target": "es6",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true
   }
 }
