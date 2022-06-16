@@ -1,4 +1,4 @@
-import * as jsonpath from "jsonpath";
+import jsonpath from "jsonpath";
 
 const user = {
   name: "Juntao Qiu",

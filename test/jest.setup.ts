@@ -1,4 +1,4 @@
-import * as jsonpath from "jsonpath";
+import jsonpath from "jsonpath";
 
 expect.extend({
   toMatchJsonPath(received, argument) {
