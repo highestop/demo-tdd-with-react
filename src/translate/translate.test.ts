@@ -1,5 +1,7 @@
 function translate(c: string) {
-  return c === "d" ? { Dev: 0.5 } : { Dev: 1.0 };
+  let sum = 0;
+  c.split("").forEach((c) => (sum += c === "d" ? 0.5 : 1.0));
+  return { Dev: sum };
 }
 
 it("translates d to half a dev day", () => {
