@@ -21,13 +21,12 @@ export function BookList({
     <div data-test="book-list">
       {data
         ? data.map((book) => (
-            <Typography key={book.id}>
-              <BookItem
-                name={book.name}
-                id={book.id}
-                desc={book.desc}
-              ></BookItem>
-            </Typography>
+            <BookItem
+              key={book.id}
+              name={book.name}
+              id={book.id}
+              desc={book.desc}
+            ></BookItem>
           ))
         : null}
     </div>
