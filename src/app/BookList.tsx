@@ -1,11 +1,16 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
 import { BookItem } from "./BookItem";
-import { useBookListData } from "./useBookListData";
 
-export function BookList() {
-  const { books, error, loading } = useBookListData();
-
+export function BookList({
+  data,
+  error,
+  loading,
+}: {
+  data?: any[];
+  error: boolean;
+  loading: boolean;
+}) {
   if (error) {
     return <p>Error..</p>;
   }
@@ -14,11 +19,17 @@ export function BookList() {
   }
   return (
     <div data-test="book-list">
-      {books.map((book) => (
-        <Typography key={book.id}>
-          <BookItem book={book}></BookItem>
-        </Typography>
-      ))}
+      {data
+        ? data.map((book) => (
+            <Typography key={book.id}>
+              <BookItem
+                name={book.name}
+                id={book.id}
+                desc={book.desc}
+              ></BookItem>
+            </Typography>
+          ))
+        : null}
     </div>
   );
 }

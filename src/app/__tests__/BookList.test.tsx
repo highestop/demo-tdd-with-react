@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { BookList } from "./BookList";
+import { BookList } from "../BookList";
 
 describe("render Book", () => {
   it("loading", () => {

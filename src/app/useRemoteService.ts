@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router";
+import axios from "axios";
 
-export function useBookDetailData() {
-  const [bookData, setBookData] = useState<any>();
+export function useRemoteService<T>(url: string, initData?: T) {
+  const [data, setData] = useState<T | undefined>(initData);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -12,10 +12,8 @@ export function useBookDetailData() {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:8119/books/${params["id"]}`
-        );
-        setBookData(res.data);
+        const res = await axios.get(url);
+        setData(res.data);
       } catch (e) {
         setError(true);
       } finally {
@@ -25,5 +23,5 @@ export function useBookDetailData() {
     fetchBook().then();
   }, [params["id"]]);
 
-  return { book: bookData, error, loading };
+  return { data, error, loading };
 }

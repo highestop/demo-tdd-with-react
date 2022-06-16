@@ -1,7 +1,5 @@
 import React from "react";
-import { useBookDetailData } from "./useBookDetailData";
 
-export function BookDetail() {
-  const { book } = useBookDetailData();
-  return book?.name ?? "-";
+export function BookDetail({ name }: { name?: string }) {
+  return <>{name ?? "-"}</>;
 }
