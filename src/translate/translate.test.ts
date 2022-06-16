@@ -9,3 +9,7 @@ it("translates d to half a dev day", () => {
 it("translates D to one dev day", () => {
   expect(translate("D")).toEqual({ Dev: 1.0 });
 });
+
+it("translates dD to one and a half dev days", () => {
+  expect(translate("dD")).toEqual({ Dev: 1.5 });
+});
