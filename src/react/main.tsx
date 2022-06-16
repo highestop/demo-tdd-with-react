@@ -4,11 +4,6 @@ import axios from "axios";
 import { Typography } from "@material-ui/core";
 import "./main.css";
 
-import DBJson from "../../cypress/stub-server/db.json";
-
-type Books = typeof DBJson["books"];
-type Book = Books[number];
-
 const container = document.getElementById("root");
 if (container) {
   const root = createRoot(container);
@@ -21,7 +16,7 @@ if (container) {
 }
 
 function BookList() {
-  const [books, setBooks] = useState<Books>([]);
+  const [books, setBooks] = useState([]);
   useEffect(() => {
     const fetchBooks = async () => {
       const res = await axios.get("http://localhost:8119/books");
@@ -40,6 +35,6 @@ function BookList() {
   );
 }
 
-function BookItem(props: { book: Book }) {
+function BookItem(props: { book: any }) {
   return <div className="book-item">{props.book.name}</div>;
 }
