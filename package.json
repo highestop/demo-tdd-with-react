@@ -1,3 +1,6 @@
 {
-  "name": "demo-tdd-with-react"
+  "name": "demo-tdd-with-react",
+  "scripts": {
+    "test": "jest"
+  }
 }
