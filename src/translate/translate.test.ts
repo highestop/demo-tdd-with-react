@@ -11,6 +11,8 @@ function parse(c: string) {
       return { status: Status.Dev, effort: 1 };
     case "q":
       return { status: Status.QA, effort: 0.5 };
+    case "Q":
+      return { status: Status.QA, effort: 1 };
     default:
       throw new Error(`not defined: ${c}`);
   }
@@ -39,4 +41,12 @@ it("translates dD to one and a half dev days", () => {
 
 it("translates q to half a qa day", () => {
   expect(translate("q")).toEqual({ QA: 0.5 });
+});
+
+it("translates qQ to one and a half qa days", () => {
+  expect(translate("qQ")).toEqual({ QA: 1.5 });
+});
+
+it("translates dddQ to one and a half dev days with one qa daya", () => {
+  expect(translate("dddQ")).toEqual({ Dev: 1.5, QA: 1 });
 });
