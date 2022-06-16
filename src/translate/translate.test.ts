@@ -9,6 +9,8 @@ function parse(c: string) {
       return { status: Status.Dev, effort: 0.5 };
     case "D":
       return { status: Status.Dev, effort: 1 };
+    case "q":
+      return { status: Status.QA, effort: 0.5 };
     default:
       throw new Error(`not defined: ${c}`);
   }
