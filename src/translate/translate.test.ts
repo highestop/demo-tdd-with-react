@@ -1,7 +1,26 @@
+enum Status {
+  Dev = "Dev",
+  QA = "QA",
+}
+
+function parse(c: string) {
+  switch (c) {
+    case "d":
+      return { status: Status.Dev, effort: 0.5 };
+    case "D":
+      return { status: Status.Dev, effort: 1 };
+    default:
+      throw new Error(`not defined: ${c}`);
+  }
+}
+
 function translate(c: string) {
-  let sum = 0;
-  c.split("").forEach((c) => (sum += c === "d" ? 0.5 : 1.0));
-  return { Dev: sum };
+  const state: { [key in Status]?: number } = {};
+  c.split("").forEach((c) => {
+    const { status, effort } = parse(c);
+    state[status] = (state[status] ?? 0) + effort;
+  });
+  return state;
 }
 
 it("translates d to half a dev day", () => {
