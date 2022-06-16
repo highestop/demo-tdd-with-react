@@ -4,9 +4,11 @@
     "test": "jest",
     "start": "vite",
     "e2e": "cypress run",
-    "open": "cypress open"
+    "open": "cypress open",
+    "server": "json-server --watch cypress/stub-server/db.json --port 8119"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/jest": "^28.1.1",
     "@types/jsonpath": "^0.2.0",
     "@types/node": "^18.0.0",
@@ -15,12 +17,14 @@
     "@vitejs/plugin-react": "^1.3.2",
     "cypress": "^10.1.0",
     "jest": "^28.1.1",
+    "json-server": "^0.17.0",
     "ts-jest": "^28.0.5",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3",
     "vite": "^2.9.12"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "jsonpath": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
