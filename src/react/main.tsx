@@ -17,17 +17,19 @@ if (container) {
 }
 
 function App() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<typeof DBJson["books"]>([]);
   useEffect(() => {
     const fetchBooks = async () => {
-      const res = await axios.get("http://localhost:8119");
+      const res = await axios.get("http://localhost:8119/books");
       setBooks(res.data);
     };
-    // fetchBooks();
+    fetchBooks().then(() => {});
   }, []);
   return (
-    <Typography variant="h2" component="h2" data-test="heading">
-      Bookish
-    </Typography>
+    <div data-test="book-list">
+      {books.map((book) => (
+        <Typography className="book-item">{book.name}</Typography>
+      ))}
+    </div>
   );
 }
