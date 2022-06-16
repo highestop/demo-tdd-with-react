@@ -10,19 +10,40 @@ if (container) {
 
   root.render(
     <React.StrictMode>
-      <BookList></BookList>
+      <App></App>
     </React.StrictMode>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Typography variant="h2" component="h2" data-test="heading">
+        Bookish
+      </Typography>
+      <BookList></BookList>
+    </div>
   );
 }
 
 function BookList() {
   const [books, setBooks] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchBooks = async () => {
+      setLoading(true);
       const res = await axios.get("http://localhost:8119/books");
-      setBooks(res.data);
+      try {
+        setBooks(res.data);
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
     };
-    fetchBooks().then(() => {});
+    fetchBooks();
   }, []);
   return (
     <div data-test="book-list">
