@@ -1,5 +1,5 @@
 function translate(c: string) {
-  return;
+  return { Dev: 0.5 };
 }
 
 it("translates d to half a dev day", () => {
