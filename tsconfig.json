@@ -10,5 +10,5 @@
     "strict": true,
     "jsx": "react"
   },
-  "include": ["src", "typing", "cypress/e2e"]
+  "include": ["src", "typing", "cypress/e2e", "cypress/stub-server"]
 }
