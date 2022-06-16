@@ -1,7 +1,7 @@
 {
   "name": "demo-tdd-with-react",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "start": "vite",
     "e2e": "cypress run",
     "open": "cypress open",

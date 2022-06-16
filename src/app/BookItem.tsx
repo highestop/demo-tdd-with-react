@@ -12,9 +12,13 @@ export function BookItem({
 }) {
   return (
     <div className="book-item">
-      <h2 className="title">{name}</h2>
-      <Link to={`/books/${id}`}>View Details</Link>
-      <p>{desc}</p>
+      <h2 className="title" data-test="book-item-name">
+        {name}
+      </h2>
+      <Link to={`/books/${id}`} data-test="book-item-link">
+        View Details
+      </Link>
+      <p data-test="book-item-desc">{desc}</p>
     </div>
   );
 }

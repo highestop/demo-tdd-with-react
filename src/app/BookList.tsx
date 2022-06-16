@@ -8,14 +8,14 @@ export function BookList({
   loading,
 }: {
   data?: any[];
-  error: boolean;
-  loading: boolean;
+  error?: boolean;
+  loading?: boolean;
 }) {
   if (error) {
-    return <p>Error..</p>;
+    return <p data-test="book-list-error">Error..</p>;
   }
   if (loading) {
-    return <p>Loading..</p>;
+    return <p data-test="book-list-loading">Loading..</p>;
   }
   return (
     <div data-test="book-list">
