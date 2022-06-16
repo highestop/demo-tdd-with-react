@@ -15,7 +15,7 @@ export function BookList() {
   return (
     <div data-test="book-list">
       {books.map((book) => (
-        <Typography>
+        <Typography key={book.id}>
           <BookItem book={book}></BookItem>
         </Typography>
       ))}

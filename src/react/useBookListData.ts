@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export function useBookListData() {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState<any[]>([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,7 @@ export function useBookListData() {
         setLoading(false);
       }
     };
-    fetchBooks();
+    fetchBooks().then();
   }, []);
   return { books, error, loading };
 }
