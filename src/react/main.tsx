@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
-import DBJson from "../../cypress/stub-server/db.json";
 import { Typography } from "@material-ui/core";
 import "./main.css";
+
+import DBJson from "../../cypress/stub-server/db.json";
+
+type Books = typeof DBJson["books"];
+type Book = Books[number];
 
 const container = document.getElementById("root");
 if (container) {
@@ -11,13 +15,13 @@ if (container) {
 
   root.render(
     <React.StrictMode>
-      <App></App>
+      <BookList></BookList>
     </React.StrictMode>
   );
 }
 
-function App() {
-  const [books, setBooks] = useState<typeof DBJson["books"]>([]);
+function BookList() {
+  const [books, setBooks] = useState<Books>([]);
   useEffect(() => {
     const fetchBooks = async () => {
       const res = await axios.get("http://localhost:8119/books");
@@ -28,8 +32,14 @@ function App() {
   return (
     <div data-test="book-list">
       {books.map((book) => (
-        <Typography className="book-item">{book.name}</Typography>
+        <Typography>
+          <BookItem book={book}></BookItem>
+        </Typography>
       ))}
     </div>
   );
+}
+
+function BookItem(props: { book: Book }) {
+  return <div className="book-item">{props.book.name}</div>;
 }
