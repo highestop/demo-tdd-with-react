@@ -26,7 +26,7 @@ function App() {
   );
 }
 
-function BookList() {
+function useBookListData() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -45,6 +45,18 @@ function BookList() {
     };
     fetchBooks();
   }, []);
+  return { books, error, loading };
+}
+
+function BookList() {
+  const { books, error, loading } = useBookListData();
+
+  if (error) {
+    return <div>Error..</div>;
+  }
+  if (loading) {
+    return <div>Loading..</div>;
+  }
   return (
     <div data-test="book-list">
       {books.map((book) => (
