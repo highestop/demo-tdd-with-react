@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
 import DBJson from "../../cypress/stub-server/db.json";
+import { Typography } from "@material-ui/core";
+import "./main.css";
 
 const container = document.getElementById("root");
 if (container) {
@@ -24,8 +26,8 @@ function App() {
     // fetchBooks();
   }, []);
   return (
-    <div>
-      <h1 data-test="heading">Hello World</h1>
-    </div>
+    <Typography variant="h2" component="h2" data-test="heading">
+      Bookish
+    </Typography>
   );
 }
