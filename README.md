@@ -1,1 +1,1 @@
-# demo-tdd-with-react
+# kata-tdd-with-react
